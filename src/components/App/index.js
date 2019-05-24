@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Filters from '../Filters';
+import Filters from '../Filters';
 import List from '../List';
 
 
@@ -7,8 +7,10 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			characters: []
+			characters: [],
+			searchFilter: ''
 		};
+		this.handlerChangeSearch = this.handlerChangeSearch.bind(this);
 
 	}
 
@@ -35,16 +37,33 @@ class App extends Component {
 			});
 	}
 
+	handlerChangeSearch(event) {
+		const valueSearch = event.currentTarget.value;
+
+		this.setState({
+			searchFilter: valueSearch
+		})
+
+		// this.setState(prevState => {
+		// 	return {
+		// 		characters: [{ ...prevState.characters, searchFilter: valueSearch }]
+		// 	}
+		// })
+
+
+	}
 
 
 	render() {
 		const characters = this.state.characters;
+		const handlerChangeSearch = this.handlerChangeSearch;
 
 		return (
 			<div>
 				<h1>Harry Potter Characters</h1>
 
 				<ul>
+					<Filters handlerChangeSearch={handlerChangeSearch} />
 					<List characters={characters} />
 
 				</ul>
