@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Filters from '../Filters';
-import List from '../List';
+import { Route, Switch } from 'react-router-dom';
+import Home from '../Home';
+import Card from '../Card';
+
+
 
 
 class App extends Component {
@@ -47,31 +50,44 @@ class App extends Component {
 
 	}
 
+	getCard(matchId) {
+		const charactersArr = this.state.characters;
+		return charactersArr.find(element => element.id === parseInt(matchId));
+	}
+
 
 	render() {
-		const characters = this.state.characters.filter(item => {
+		const charactersArr = this.state.characters;
+		const charactersFilter = this.state.characters.filter(item => {
 			return item.name.includes(this.state.searchFilter)
 		});
+
+
 
 		const handlerChangeSearch = this.handlerChangeSearch;
 		const searchFilter = this.state.searchFilter;
 
 		return (
-			<div>
-				<h1>Harry Potter Characters</h1>
-				{/* hago aqui el filtro y que le mande los filtrados solo a list. asi todo queda en la madre se buscan por NOMBRE
-				hace distinción entre mayúsculas y minúsculas*/}
-
-				<ul>
-					<Filters
+			<Switch>
+				<Route exact path='/' render={() =>
+					<Home
 						handlerChangeSearch={handlerChangeSearch}
-						searchFilter={searchFilter} />
-					<List characters={characters} />
+						searchFilter={searchFilter}
 
-				</ul>
+						charactersFilter={charactersFilter}
+					/>
+				} />
+				<Route path='/:id' render={routerProps =>
+					<Card
+						match={routerProps.match}
+						charactersArr={charactersArr}
+						card={this.getCard(routerProps.match.params.Id)}
+					/>
+				} />
 
 
-			</div>
+			</Switch>
+
 		)
 
 	}

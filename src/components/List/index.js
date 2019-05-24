@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-// import Card from '..Card'
+import { Link } from 'react-router-dom';
 
 class List extends Component {
     render() {
-        const { characters } = this.props;
+        const { charactersFilter } = this.props;
 
         return (
             <ul>
-                {characters.map(item => {
+                {charactersFilter.map(item => {
                     return (
                         <li key={item.id}>
-                            <div>
-                                <img src={item.image} alt="" />
-                                <p>{item.name}</p>
-                                <p>{item.house}</p>
-                            </div>
+                            <Link to={`/${item.id}`}>
+                                <div>
+                                    <img src={item.image} alt="" />
+                                    <p>{item.name}</p>
+                                    <p>{item.house}</p>
+                                </div>
+                            </Link>
                         </li>
                     );
                 })}
