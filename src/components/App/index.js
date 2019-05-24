@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Filters from '../Filters';
+import List from '../List';
+
 
 class App extends Component {
 	render() {
@@ -16,7 +19,12 @@ class App extends Component {
 
 		// return pageIndex; //aqui sin paréntesis porque es un solo elemento
 		return (
-			<h1>soy APP</h1>
+			<div>
+				<h1>soy APP</h1>
+				<Filters />
+				<List />
+
+			</div>
 		)
 
 	}
