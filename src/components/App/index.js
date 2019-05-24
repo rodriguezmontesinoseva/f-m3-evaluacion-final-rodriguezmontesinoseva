@@ -44,26 +44,28 @@ class App extends Component {
 			searchFilter: valueSearch
 		})
 
-		// this.setState(prevState => {
-		// 	return {
-		// 		characters: [{ ...prevState.characters, searchFilter: valueSearch }]
-		// 	}
-		// })
-
 
 	}
 
 
 	render() {
-		const characters = this.state.characters;
+		const characters = this.state.characters.filter(item => {
+			return item.name.includes(this.state.searchFilter)
+		});
+
 		const handlerChangeSearch = this.handlerChangeSearch;
+		const searchFilter = this.state.searchFilter;
 
 		return (
 			<div>
 				<h1>Harry Potter Characters</h1>
+				{/* hago aqui el filtro y que le mande los filtrados solo a list. asi todo queda en la madre se buscan por NOMBRE
+				hace distinción entre mayúsculas y minúsculas*/}
 
 				<ul>
-					<Filters handlerChangeSearch={handlerChangeSearch} />
+					<Filters
+						handlerChangeSearch={handlerChangeSearch}
+						searchFilter={searchFilter} />
 					<List characters={characters} />
 
 				</ul>
