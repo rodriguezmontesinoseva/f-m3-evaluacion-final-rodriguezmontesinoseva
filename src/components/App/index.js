@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Filters from '../Filters';
+// import Filters from '../Filters';
 import List from '../List';
 
 
@@ -9,12 +9,12 @@ class App extends Component {
 		this.state = {
 			characters: []
 		};
-		this.getCharacters();
+
 	}
 
-	// componentDidMount() {
-	// 	this.getCharacters();
-	// }
+	componentDidMount() {
+		this.getCharacters();
+	}
 
 
 	getCharacters() {
@@ -23,9 +23,11 @@ class App extends Component {
 		fetch(ENDPOINT)
 			.then(response => response.json())
 			.then(data => {
-				console.dir(data);
+				const newCharacters = data.map((item, id) => {
+					return { ...item, id: id + 1 }
+				})
 				this.setState({
-					characters: data
+					characters: newCharacters
 				});
 
 
@@ -40,14 +42,13 @@ class App extends Component {
 
 		return (
 			<div>
-				<h1>Listado</h1>
+				<h1>Harry Potter Characters</h1>
 
 				<ul>
-					<Filters characters={characters} />
+					<List characters={characters} />
 
 				</ul>
 
-				<List />
 
 			</div>
 		)
