@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class List extends Component {
     render() {
@@ -27,5 +28,13 @@ class List extends Component {
         );
     }
 }
+
+List.propTypes = {
+    charactersFilter: PropTypes.arrayOf(PropTypes.object),
+    id: PropTypes.number,
+    image: PropTypes.string,
+    name: PropTypes.string,
+    house: PropTypes.string,
+};
 
 export default List;

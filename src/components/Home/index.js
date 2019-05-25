@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Filters from '../Filters';
 import List from '../List';
-import Card from '../Card'
+import PropTypes from 'prop-types';
 
 class Home extends Component {
     render() {
@@ -20,9 +20,6 @@ class Home extends Component {
                     <Filters
                         handlerChangeSearch={handlerChangeSearch}
                         searchFilter={searchFilter} />
-                    {/* <Card charactersArr={charactersArr}
-                    /> */}
-
                     <List charactersFilter={charactersFilter} />
 
                 </ul>
@@ -33,5 +30,12 @@ class Home extends Component {
         );
     }
 }
+
+Home.propTypes = {
+    charactersFilter: PropTypes.arrayOf(PropTypes.object),
+    handlerChangeSearch: PropTypes.func,
+    searchFilter: PropTypes.string
+};
+
 
 export default Home;

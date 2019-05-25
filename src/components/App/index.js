@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import Card from '../Card';
+import PropTypes from 'prop-types';
 
 
 
@@ -50,19 +51,11 @@ class App extends Component {
 
 	}
 
-	getCard(matchId) {
-		const charactersArr = this.state.characters;
-		return charactersArr.find(element => element.id === parseInt(matchId));
-	}
-
-
 	render() {
 		const charactersArr = this.state.characters;
 		const charactersFilter = this.state.characters.filter(item => {
 			return item.name.includes(this.state.searchFilter)
 		});
-
-
 
 		const handlerChangeSearch = this.handlerChangeSearch;
 		const searchFilter = this.state.searchFilter;
@@ -94,6 +87,14 @@ class App extends Component {
 
 	}
 }
+
+App.propTypes = {
+	valueSearch: PropTypes.string,
+	charactersArr: PropTypes.arrayOf(PropTypes.object),
+	charactersFilter: PropTypes.arrayOf(PropTypes.object),
+	handlerChangeSearch: PropTypes.func,
+	searchFilter: PropTypes.string
+};
 
 export default App;
 
