@@ -1,5 +1,59 @@
 .list-container{
     border-top: 1px solid #fff;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    margin:0 25;
+
+    @media all and (min-width:768px) {
+        margin:0 48;
+    }
+
+    @media all and (min-width:1280px) {
+      max-width: 1120px;
+      margin:0 auto;
+    }
+
 
 };
+.item-list{
+    height:300px ;
+    width: 200px;
+    background-color: #263650;
+    margin:10px;
+    list-style:none;
+    @media all and (min-width:768px) {
+        height:315px ;
+        width: 215px;
+    }
+    @media all and (min-width:1280px) {
+        height:350px ;
+        width: 250px;
+    }
+
+    
+}
+
+.item-image{
+    height: 70%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item-text{
+    color: #fff;
+    @media all and (min-width:768px) {
+        font-size: 1.2em;
+    }
+}
+
+.name-item{
+    font-weight: bold;
+    @media all and (min-width:768px) {
+        margin: 10px;
+    }
+    
+}

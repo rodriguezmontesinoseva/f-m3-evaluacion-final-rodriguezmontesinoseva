@@ -14,8 +14,8 @@ class Home extends Component {
 
         return (
             <div className='central-column'>
-                <header>
-                    <h1 >Harry Potter Characters</h1>
+                <header >
+                    <h1 className="title-header" >Harry Potter Characters</h1>
 
                 </header>
 
@@ -30,7 +30,7 @@ class Home extends Component {
 
                 </main>
                 <footer>
-                    <h3>Bienvenido a Hogwarts...</h3>
+                    <h3 className="title-footer">Bienvenido a Hogwarts...</h3>
                 </footer>
 
 

@@ -7,22 +7,27 @@ class List extends Component {
     render() {
         const { charactersFilter } = this.props;
 
+
         return (
             <ul className="list-container">
                 {charactersFilter.map(item => {
                     return (
-                        <li key={item.id}>
+                        <li className="item-list"
+                            key={item.id}
+                        >
                             <Link to={`/${item.id}`}>
-                                <div>
-                                    <img src={item.image} alt="" />
-                                    <p>{item.name}</p>
-                                    <p>{item.house}</p>
+                                <div className="item-image" style={{ backgroundImage: `url(${item.image})` }} >
                                 </div>
                             </Link>
+                            <div className="item-text">
+                                <p className="name-item">{item.name}</p>
+                                <p>{item.house}</p>
+                            </div>
+
                         </li>
                     );
                 })}
-            </ul>
+            </ul >
 
 
 
