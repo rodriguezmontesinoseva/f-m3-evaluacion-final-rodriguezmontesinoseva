@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Filters from '../Filters';
 import List from '../List';
+import './styles.scss';
 import PropTypes from 'prop-types';
 
 class Home extends Component {
@@ -12,17 +13,25 @@ class Home extends Component {
         } = this.props;
 
         return (
-            <div>
-                <h1>Harry Potter Characters</h1>
+            <div className='title'>
+                <header>
+                    <h1 >Harry Potter Characters</h1>
 
+                </header>
 
-                <ul>
-                    <Filters
-                        handlerChangeSearch={handlerChangeSearch}
-                        searchFilter={searchFilter} />
-                    <List charactersFilter={charactersFilter} />
+                <main className='main-container'>
+                    <ul>
+                        <Filters
+                            handlerChangeSearch={handlerChangeSearch}
+                            searchFilter={searchFilter} />
+                        <List charactersFilter={charactersFilter} />
 
-                </ul>
+                    </ul>
+
+                </main>
+                <footer>
+                    <h2>Bienvenido a Hogwarts...</h2>
+                </footer>
 
 
             </div>
