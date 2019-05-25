@@ -6,8 +6,8 @@ class Filters extends Component {
     render() {
         const { handlerChangeSearch, searchFilter } = this.props;
         return (
-            <div className>
-                <label htmlFor="searchFilter">Introduce el nombre del personaje que quieres buscar</label>
+            <div className="filters-container">
+                <label className="filters-label" htmlFor="searchFilter">Busca a tu personaje favorito</label>
                 <input type="text" name="searchFilter" id="searchFilter" onChange={handlerChangeSearch} value={searchFilter} />
             </div>
         );

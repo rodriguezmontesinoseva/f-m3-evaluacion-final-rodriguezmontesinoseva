@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 class List extends Component {
     render() {
         const { charactersFilter } = this.props;
 
         return (
-            <ul>
+            <ul className="list-container">
                 {charactersFilter.map(item => {
                     return (
                         <li key={item.id}>

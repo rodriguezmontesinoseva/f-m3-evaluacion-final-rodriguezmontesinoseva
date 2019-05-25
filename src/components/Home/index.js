@@ -13,24 +13,24 @@ class Home extends Component {
         } = this.props;
 
         return (
-            <div className='title'>
+            <div className='central-column'>
                 <header>
                     <h1 >Harry Potter Characters</h1>
 
                 </header>
 
                 <main className='main-container'>
-                    <ul>
-                        <Filters
-                            handlerChangeSearch={handlerChangeSearch}
-                            searchFilter={searchFilter} />
-                        <List charactersFilter={charactersFilter} />
 
-                    </ul>
+                    <Filters
+                        handlerChangeSearch={handlerChangeSearch}
+                        searchFilter={searchFilter} />
+                    <List charactersFilter={charactersFilter} />
+
+
 
                 </main>
                 <footer>
-                    <h2>Bienvenido a Hogwarts...</h2>
+                    <h3>Bienvenido a Hogwarts...</h3>
                 </footer>
 
 
