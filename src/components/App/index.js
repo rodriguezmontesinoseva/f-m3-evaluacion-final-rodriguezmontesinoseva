@@ -78,6 +78,8 @@ class App extends Component {
 					/>
 				} />
 				<Route path='/:id' render={routerProps =>
+
+
 					<Card
 						match={routerProps.match}
 						charactersArr={charactersArr}
