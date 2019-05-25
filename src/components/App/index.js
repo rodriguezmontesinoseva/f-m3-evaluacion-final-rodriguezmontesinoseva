@@ -81,7 +81,7 @@ class App extends Component {
 					<Card
 						match={routerProps.match}
 						charactersArr={charactersArr}
-						card={this.getCard(routerProps.match.params.Id)}
+					// card={this.getCard(routerProps.match.params.id)}
 					/>
 				} />
 
