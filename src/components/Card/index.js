@@ -21,11 +21,11 @@ class Card extends Component {
 
                 <main className='card-main-container'>
                     {selCharacter !== undefined ?
-                        <div>
+                        <div className='card-data-container'>
                             <div className='card-image' style={{ backgroundImage: `url(${selCharacter.image})` }} ></div>
                             {/* <img src={selCharacter.image} alt="" /> */}
                             <div className='card-text'>
-                                <h2>{selCharacter.name}</h2>
+                                <h2 className='card-title'>{selCharacter.name}</h2>
                                 <p>Casa: {selCharacter.house}</p>
                                 <p>Nacimiento: {selCharacter.yearOfBirth}</p>
                                 <p>Patronus: {selCharacter.patronus}</p>
