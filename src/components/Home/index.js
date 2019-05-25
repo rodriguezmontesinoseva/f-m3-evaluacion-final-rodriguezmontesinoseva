@@ -15,7 +15,7 @@ class Home extends Component {
         return (
             <div className='central-column'>
                 <header >
-                    <h1 className="title-header" >Harry Potter Characters</h1>
+                    <h1 className='title-header' >Harry Potter Characters</h1>
 
                 </header>
 

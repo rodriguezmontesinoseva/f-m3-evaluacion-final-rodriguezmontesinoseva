@@ -5,10 +5,10 @@
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: center;
-    margin:0 25;
+    margin:0 25px;
 
     @media all and (min-width:768px) {
-        margin:0 48;
+        margin:0 48px;
     }
 
     @media all and (min-width:1280px) {
@@ -24,6 +24,8 @@
     background-color: #263650;
     margin:10px;
     list-style:none;
+    border-radius: 5%;
+
     @media all and (min-width:768px) {
         height:315px ;
         width: 215px;
@@ -41,6 +43,9 @@
     width:100%;
     background-repeat: no-repeat;
     background-size: cover;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+
 }
 
 .item-text{

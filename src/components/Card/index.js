@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
 class Card extends Component {
     render() {
@@ -13,21 +14,30 @@ class Card extends Component {
 
 
         return (
-            <div>
-                <Link to='/'>volver</Link>
-                {selCharacter !== undefined ?
-                    <div>
-                        <img src={selCharacter.image} alt="" />
-                        <h1>{selCharacter.name}</h1>
-                        <p>Casa: {selCharacter.house}</p>
-                        <p>Nacimiento: {selCharacter.yearOfBirth}</p>
-                        <p>Patronus: {selCharacter.patronus}</p>
-                        <p>Estado: {selCharacter.alive === true ? 'Vivo' : 'Muerto'}</p>
-                    </div>
+            <div className='card-container'>
+                < header  >
+                    <Link to='/' className="go-back">Volver</Link>
+                </header>
 
-                    :
-                    <p>loading...</p>
-                }
+                <main className='card-main-container'>
+                    {selCharacter !== undefined ?
+                        <div>
+                            <div className='card-image' style={{ backgroundImage: `url(${selCharacter.image})` }} ></div>
+                            {/* <img src={selCharacter.image} alt="" /> */}
+                            <div className='card-text'>
+                                <h2>{selCharacter.name}</h2>
+                                <p>Casa: {selCharacter.house}</p>
+                                <p>Nacimiento: {selCharacter.yearOfBirth}</p>
+                                <p>Patronus: {selCharacter.patronus}</p>
+                                <p>Estado: {selCharacter.alive === true ? 'Vivo' : 'Muerto'}</p>
+                            </div>
+                        </div>
+
+                        :
+                        <p>loading...</p>
+                    }
+
+                </main>
 
 
 
