@@ -1,75 +1,53 @@
-.card-container{
-    // display: flex;
-    // justify-content: center;
-    margin:20px 25px;
-  
+@import '../../scss/colors';
 
+.card-container{
+    margin:20px 25px;
     @media all and (min-width:768px) {
         margin:20px 48px;
-        height: 100vh;
-        width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
-
-    // @media all and (min-width:1280px) {
-    //   max-width: 1120px;
-    //   margin:20px auto;
-    // }
 }
 
 .go-back{
     text-decoration:none ;
-    color: #e8e8e4;
-
-    border: solid 1px #e8e8e4;
+    color: $color-light-blue;
+    border: solid 1px $color-light-blue;
     border-radius: 20%;
     padding: 2px;
-    @media all and (min-width:768px) {
-      align-self: flex-end;
+    @media all and (min-width:1280px) {
+        font-size:1.3em;
     }
 }
 
 .card-main-container{
-
-    background-color:#e8e8e4;
-    color: #333;
+    background-color:$color-light-blue;
+    color: $color-grey;
     margin-top:20px;
-    border:solid 3px #e8e8e4;
-
-    // @media all and (min-width:768px) {
-    // 
-    // } 
+    border:solid 3px $color-light-blue;
+    height: 100vh;
     @media all and (min-width:768px) {
         height: 70vh;
          width:70vw;
-       
+         margin-top: 40px;       
     }
-
-
 };
 
 .card-data-container{
     @media all and (min-width:768px) {
         height: 100%;
         width:100%;
-        display:flex;
- 
+        display:flex; 
      }
-     // @media all and (min-width:1280px) {
-     //     height:350px ;
-     //     width: 250px;
-     // }
 }
+
 .card-image{
     height: 300px;
-    // height: 70%;
     width:100%;
     background-repeat: no-repeat;
     background-size: cover;
-
     @media all and (min-width:768px) {
         height: 100%;
          width:50%;
@@ -79,10 +57,11 @@
 .card-text{
     padding:10px;
     @media all and (min-width:768px) {
-       // height: 100%;
          width:47%;
     }
-
+    @media all and (min-width:1280px) {
+        font-size:1.3em;
+    }
 };
 
 .card-title{
@@ -90,5 +69,10 @@ text-align: center;
 @media all and (min-width:768px) {
     margin-bottom: 55px;
  }
+};
+
+.no-data{
+    text-align: center;
+       margin-top: 50px;    
 };
 

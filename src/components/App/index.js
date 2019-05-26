@@ -4,9 +4,6 @@ import Home from '../Home';
 import Card from '../Card';
 import PropTypes from 'prop-types';
 
-
-
-
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -15,17 +12,14 @@ class App extends Component {
 			searchFilter: ''
 		};
 		this.handlerChangeSearch = this.handlerChangeSearch.bind(this);
-
 	}
 
 	componentDidMount() {
 		this.getCharacters();
 	}
 
-
 	getCharacters() {
 		const ENDPOINT = 'http://hp-api.herokuapp.com/api/characters';
-
 		fetch(ENDPOINT)
 			.then(response => response.json())
 			.then(data => {
@@ -35,20 +29,14 @@ class App extends Component {
 				this.setState({
 					characters: newCharacters
 				});
-
-
-
 			});
 	}
 
 	handlerChangeSearch(event) {
 		const valueSearch = event.currentTarget.value;
-
 		this.setState({
 			searchFilter: valueSearch
 		})
-
-
 	}
 
 	render() {
@@ -56,7 +44,6 @@ class App extends Component {
 		const charactersFilter = this.state.characters.filter(item => {
 			return item.name.includes(this.state.searchFilter)
 		});
-
 		const handlerChangeSearch = this.handlerChangeSearch;
 		const searchFilter = this.state.searchFilter;
 
@@ -66,24 +53,17 @@ class App extends Component {
 					<Home
 						handlerChangeSearch={handlerChangeSearch}
 						searchFilter={searchFilter}
-
 						charactersFilter={charactersFilter}
 					/>
 				} />
 				<Route path='/:id' render={routerProps =>
-
-
 					<Card
 						match={routerProps.match}
 						charactersArr={charactersArr}
 					/>
 				} />
-
-
 			</Switch>
-
 		)
-
 	}
 }
 

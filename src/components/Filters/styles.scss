@@ -1,14 +1,11 @@
+
 .filters-container{
     font-weight: bold;
     font-size: 15px;
-
-
     display:inline-flex;
     flex-direction: column;
     justify-content: center;
-
     padding: 30px;
-
     @media all and (min-width:768px) {
         font-size: 1.3em;
         letter-spacing: 2px;
@@ -21,5 +18,4 @@
 
 .filters-label{
     padding-bottom: 20px;
-
 }

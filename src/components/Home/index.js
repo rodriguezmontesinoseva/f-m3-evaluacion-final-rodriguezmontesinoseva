@@ -16,26 +16,17 @@ class Home extends Component {
             <div className='central-column'>
                 <header >
                     <h1 className='title-header' >Harry Potter Characters</h1>
-
                 </header>
-
                 <main className='main-container'>
-
                     <Filters
                         handlerChangeSearch={handlerChangeSearch}
                         searchFilter={searchFilter} />
                     <List charactersFilter={charactersFilter} />
-
-
-
                 </main>
                 <footer>
                     <h3 className="title-footer">Bienvenido a Hogwarts...</h3>
                 </footer>
-
-
             </div>
-
         );
     }
 }
@@ -45,6 +36,5 @@ Home.propTypes = {
     handlerChangeSearch: PropTypes.func,
     searchFilter: PropTypes.string
 };
-
 
 export default Home;

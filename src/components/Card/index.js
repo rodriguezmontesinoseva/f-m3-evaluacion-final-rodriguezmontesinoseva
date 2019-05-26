@@ -8,22 +8,16 @@ class Card extends Component {
         const { charactersArr } = this.props;
         const { id } = this.props.match.params;
         const selCharacter = charactersArr[id - 1];
-        console.log(selCharacter);
-        console.log(id);
-
-
 
         return (
             <div className='card-container'>
                 < header  >
                     <Link to='/' className="go-back">Volver</Link>
                 </header>
-
                 <main className='card-main-container'>
                     {selCharacter !== undefined ?
                         <div className='card-data-container'>
                             <div className='card-image' style={{ backgroundImage: `url(${selCharacter.image})` }} ></div>
-                            {/* <img src={selCharacter.image} alt="" /> */}
                             <div className='card-text'>
                                 <h2 className='card-title'>{selCharacter.name}</h2>
                                 <p>Casa: {selCharacter.house}</p>
@@ -32,22 +26,13 @@ class Card extends Component {
                                 <p>Estado: {selCharacter.alive === true ? 'Vivo' : 'Muerto'}</p>
                             </div>
                         </div>
-
                         :
-                        <p>loading...</p>
+                        <p className='no-data'>No hay datos de este personaje</p>
                     }
-
                 </main>
-
-
-
-
-
             </div>
-
         );
     }
-
 }
 
 Card.propTypes = {
@@ -59,8 +44,6 @@ Card.propTypes = {
     yearOfBirth: PropTypes.string,
     patronus: PropTypes.string,
     alive: PropTypes.bool
-
 };
-
 
 export default Card;

@@ -11,7 +11,6 @@ class Filters extends Component {
                 <input type="text" name="searchFilter" id="searchFilter" onChange={handlerChangeSearch} value={searchFilter} />
             </div>
         );
-
     }
 }
 

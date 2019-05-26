@@ -1,31 +1,30 @@
+@import '../../scss/colors';
+
 .list-container{
-    border-top: 1px solid #fff;
+    border-top: 1px solid $color-white;
     overflow: hidden;
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
     justify-content: center;
     margin:0 25px;
-
+    padding: 0;
     @media all and (min-width:768px) {
         margin:0 48px;
     }
-
     @media all and (min-width:1280px) {
       max-width: 1120px;
       margin:0 auto;
     }
-
-
 };
+
 .item-list{
     height:300px ;
     width: 200px;
-    background-color: #263650;
+    background-color:$color-dark-blue;
     margin:10px;
     list-style:none;
     border-radius: 5%;
-
     @media all and (min-width:768px) {
         height:315px ;
         width: 215px;
@@ -33,9 +32,7 @@
     @media all and (min-width:1280px) {
         height:350px ;
         width: 250px;
-    }
-
-    
+    }    
 }
 
 .item-image{
@@ -45,11 +42,10 @@
     background-size: cover;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-
 }
 
 .item-text{
-    color: #fff;
+    color:$color-white;
     @media all and (min-width:768px) {
         font-size: 1.2em;
     }
@@ -59,6 +55,5 @@
     font-weight: bold;
     @media all and (min-width:768px) {
         margin: 10px;
-    }
-    
+    }    
 }
