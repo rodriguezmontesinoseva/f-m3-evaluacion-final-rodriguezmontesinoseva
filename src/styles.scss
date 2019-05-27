@@ -11,7 +11,8 @@ body {
   display:flex;
   flex-direction: column;
   justify-content: center;
-  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
