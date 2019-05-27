@@ -5,7 +5,7 @@ import './styles.scss';
 
 class Card extends Component {
     render() {
-        const { charactersArr } = this.props;
+        const { charactersArr, loading } = this.props;
         const { id } = this.props.match.params;
         const selCharacter = charactersArr[id - 1];
 
@@ -27,7 +27,7 @@ class Card extends Component {
                             </div>
                         </div>
                         :
-                        <p className='no-data'>No hay datos de este personaje</p>
+                        <h3 className='no-data'> {loading ? 'Loading...' : 'No hay datos de este personaje'}</h3>
                     }
                 </main>
             </div>
@@ -43,7 +43,8 @@ Card.propTypes = {
     house: PropTypes.string,
     yearOfBirth: PropTypes.string,
     patronus: PropTypes.string,
-    alive: PropTypes.bool
+    alive: PropTypes.bool,
+    loading: PropTypes.bool
 };
 
 export default Card;

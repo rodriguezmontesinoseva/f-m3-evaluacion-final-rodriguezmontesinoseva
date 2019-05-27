@@ -9,7 +9,8 @@ class App extends Component {
 		super(props);
 		this.state = {
 			characters: [],
-			searchFilter: ''
+			searchFilter: '',
+			loading: true
 		};
 		this.handlerChangeSearch = this.handlerChangeSearch.bind(this);
 	}
@@ -27,7 +28,8 @@ class App extends Component {
 					return { ...item, id: id + 1 }
 				})
 				this.setState({
-					characters: newCharacters
+					characters: newCharacters,
+					loading: false
 				});
 			});
 	}
@@ -60,6 +62,7 @@ class App extends Component {
 					<Card
 						match={routerProps.match}
 						charactersArr={charactersArr}
+						loading={this.state.loading}
 					/>
 				} />
 			</Switch>
@@ -72,7 +75,8 @@ App.propTypes = {
 	charactersArr: PropTypes.arrayOf(PropTypes.object),
 	charactersFilter: PropTypes.arrayOf(PropTypes.object),
 	handlerChangeSearch: PropTypes.func,
-	searchFilter: PropTypes.string
+	searchFilter: PropTypes.string,
+	loading: PropTypes.bool
 };
 
 export default App;
