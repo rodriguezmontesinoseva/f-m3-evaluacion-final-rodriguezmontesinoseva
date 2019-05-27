@@ -20,10 +20,10 @@ class Card extends Component {
                             <div className='card-image' style={{ backgroundImage: `url(${selCharacter.image})` }} ></div>
                             <div className='card-text'>
                                 <h2 className='card-title'>{selCharacter.name}</h2>
-                                <p>Casa: {selCharacter.house}</p>
-                                <p>Nacimiento: {selCharacter.yearOfBirth}</p>
-                                <p>Patronus: {selCharacter.patronus}</p>
-                                <p>Estado: {selCharacter.alive === true ? 'Vivo' : 'Muerto'}</p>
+                                {selCharacter.house ? <p>Casa: {selCharacter.house}</p> : ''}
+                                {selCharacter.yearOfBirth ? <p>Nacimiento: {selCharacter.yearOfBirth}</p> : ''}
+                                {selCharacter.patronus ? <p>Patronus: {selCharacter.patronus}</p> : ''}
+                                <p>Estado: {selCharacter.alive === true ? ' 🌈Vivo' : '☠️ Muerto'}</p>
                             </div>
                         </div>
                         :
