@@ -69,15 +69,14 @@ class App extends Component {
 	render() {
 		const houses = this.state.filters.houses;
 		const charactersArr = this.state.characters;
-		// const charactersCheck = this.state.charactersCheck;
-		const valueCheck = this.state.valueCheck;
+		const handlerChangeSearch = this.handlerChangeSearch;
+		const searchFilter = this.state.searchFilter;
+		const handlerChangeCheck = this.handlerChangeCheck;
 
 		const charactersFilter = charactersArr
-
 			.filter(item => {
 				return item.name.includes(this.state.searchFilter)
 			})
-
 			.filter(item => {
 				if (!houses.length) {
 					return true
@@ -89,13 +88,7 @@ class App extends Component {
 
 			})
 
-		console.log(charactersFilter);
 
-
-
-		const handlerChangeSearch = this.handlerChangeSearch;
-		const searchFilter = this.state.searchFilter;
-		const handlerChangeCheck = this.handlerChangeCheck;
 
 		return (
 			<Switch>
