@@ -4,15 +4,21 @@ import Home from '../Home';
 import Card from '../Card';
 import PropTypes from 'prop-types';
 
+
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			characters: [],
 			searchFilter: '',
-			loading: true
+			loading: true,
+			filters: {
+				houses: []
+				//en houses guardo los checkbox chequeados, si están en este array tienen que estar chekeados
+			}
 		};
 		this.handlerChangeSearch = this.handlerChangeSearch.bind(this);
+		this.handlerChangeCheck = this.handlerChangeCheck.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,18 +42,60 @@ class App extends Component {
 
 	handlerChangeSearch(event) {
 		const valueSearch = event.currentTarget.value;
+
 		this.setState({
 			searchFilter: valueSearch
 		})
 	}
 
+	handlerChangeCheck(event) {
+		const { value, checked } = event.target;
+		console.log(value);
+		this.setState(prevState => {
+			return {
+				filters: {
+					...prevState.filters,
+					houses: checked
+						? prevState.filters.houses.concat(value)
+						// si checkeo concateno el checkbox a lo que hubiese antes en el array houses
+						: prevState.filters.houses.filter(item => item !== value)
+					//si descheckeo filtro el array cogiendo los que son diferentes al value que me llega
+				}
+			}
+		})
+
+	}
+
 	render() {
+		const houses = this.state.filters.houses;
 		const charactersArr = this.state.characters;
-		const charactersFilter = this.state.characters.filter(item => {
-			return item.name.includes(this.state.searchFilter)
-		});
+		// const charactersCheck = this.state.charactersCheck;
+		const valueCheck = this.state.valueCheck;
+
+		const charactersFilter = charactersArr
+
+			.filter(item => {
+				return item.name.includes(this.state.searchFilter)
+			})
+
+			.filter(item => {
+				if (!houses.length) {
+					return true
+					// si el array esta vacio no tiene longitud, devuelve true, es decir , coge el elemento 
+				} else {
+					return houses.includes(item.house)
+					//si el array tiene algo, devuelve los elementos que incluyan item.house
+				}
+
+			})
+
+		console.log(charactersFilter);
+
+
+
 		const handlerChangeSearch = this.handlerChangeSearch;
 		const searchFilter = this.state.searchFilter;
+		const handlerChangeCheck = this.handlerChangeCheck;
 
 		return (
 			<Switch>
@@ -56,6 +104,8 @@ class App extends Component {
 						handlerChangeSearch={handlerChangeSearch}
 						searchFilter={searchFilter}
 						charactersFilter={charactersFilter}
+						handlerChangeCheck={handlerChangeCheck}
+						houses={houses}
 					/>
 				} />
 				<Route path='/:id' render={routerProps =>
@@ -76,7 +126,8 @@ App.propTypes = {
 	charactersFilter: PropTypes.arrayOf(PropTypes.object),
 	handlerChangeSearch: PropTypes.func,
 	searchFilter: PropTypes.string,
-	loading: PropTypes.bool
+	loading: PropTypes.bool,
+	isCheck: PropTypes.bool
 };
 
 export default App;

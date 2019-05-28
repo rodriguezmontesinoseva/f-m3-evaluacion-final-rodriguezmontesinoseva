@@ -9,7 +9,9 @@ class Home extends Component {
         const {
             handlerChangeSearch,
             searchFilter,
-            charactersFilter
+            charactersFilter,
+            handlerChangeCheck,
+            houses
         } = this.props;
 
         return (
@@ -20,7 +22,10 @@ class Home extends Component {
                 <main className='main-container'>
                     <Filters
                         handlerChangeSearch={handlerChangeSearch}
-                        searchFilter={searchFilter} />
+                        searchFilter={searchFilter}
+                        handlerChangeCheck={handlerChangeCheck}
+                        houses={houses} />
+
                     <List charactersFilter={charactersFilter} />
                 </main>
                 <footer>
