@@ -10,9 +10,12 @@ class App extends Component {
 		this.state = {
 			characters: [],
 			searchFilter: '',
-			loading: true
+			loading: true,
+			radio: 'Todos'
 		};
 		this.handlerChangeSearch = this.handlerChangeSearch.bind(this);
+		this.handlerClickRadio = this.handlerClickRadio.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -41,13 +44,40 @@ class App extends Component {
 		})
 	}
 
+	handlerClickRadio(event) {
+		const valueRadio = event.currentTarget.value;
+		this.setState({
+			radio: valueRadio
+		})
+	}
+
 	render() {
-		const charactersArr = this.state.characters;
-		const charactersFilter = this.state.characters.filter(item => {
-			return item.name.includes(this.state.searchFilter)
-		});
-		const handlerChangeSearch = this.handlerChangeSearch;
 		const searchFilter = this.state.searchFilter;
+		const radio = this.state.radio;
+
+		const charactersArr = this.state.characters;
+		const charactersFilter = charactersArr
+			.filter(item => {
+				return item.name.includes(searchFilter)
+			})
+			.filter(item => {
+
+				if (radio !== 'Todos') {
+					return item.house === radio;
+				} else if (radio === 'Sin-casa') {
+					return item.house === '';
+
+				} else if (radio === 'Todos') {
+					return charactersArr;
+				};
+
+
+			});
+		const handlerChangeSearch = this.handlerChangeSearch;
+		const handlerClickRadio = this.handlerClickRadio;
+
+		console.log = (this.state.radio);
+
 
 		return (
 			<Switch>
@@ -56,6 +86,7 @@ class App extends Component {
 						handlerChangeSearch={handlerChangeSearch}
 						searchFilter={searchFilter}
 						charactersFilter={charactersFilter}
+						handlerClickRadio={handlerClickRadio}
 					/>
 				} />
 				<Route path='/:id' render={routerProps =>
